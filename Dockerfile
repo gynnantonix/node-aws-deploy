@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.8
 
 ENV AWS_CLI_VERSION 1.16.61
 
@@ -15,12 +15,8 @@ RUN apk --no-cache update \
         zip \
         git \
         openssh-client \
-    && pip --no-cache-dir install awscli==${AWS_CLI_VERSION} \
-    && rm -rf /var/cache/apk/*
-
-RUN apk add --no-cache --virtual .gyp \
         make \
         g++ \
-    && yarn global add \
-        node-gyp \
-    && apk del .gyp
+    && pip --no-cache-dir install awscli==${AWS_CLI_VERSION} \
+    && rm -rf /var/cache/apk/*
+    
