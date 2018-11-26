@@ -10,6 +10,7 @@ RUN apk --no-cache update \
         ca-certificates \
         groff \
         less \
+        bash \
         nodejs \
         yarn \
         zip \
@@ -19,4 +20,3 @@ RUN apk --no-cache update \
         g++ \
     && pip --no-cache-dir install awscli==${AWS_CLI_VERSION} \
     && rm -rf /var/cache/apk/*
-    
